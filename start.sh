@@ -1,5 +1,8 @@
 #!/bin/bash -x
 
+KAFKA_BROKER_ID=${TUTUM_CONTAINER_HOSTNAME##*-}
+KAFKA_ADVERTISED_HOST_NAME=$TUTUM_CONTAINER_HOSTNAME
+
 # If a ZooKeeper container is linked with the alias `zookeeper`, use it.
 # You MUST set ZOOKEEPER_IP in env otherwise.
 [ -n "$ZOOKEEPER_PORT_2181_TCP_ADDR" ] && ZOOKEEPER_IP=$ZOOKEEPER_PORT_2181_TCP_ADDR
